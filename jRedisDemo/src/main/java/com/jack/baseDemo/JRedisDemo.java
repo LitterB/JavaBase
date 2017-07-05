@@ -9,12 +9,12 @@ import java.util.Set;
  * Created by jack on 2017/7/4.
  */
 public class JRedisDemo {
-    private static final String host = "115.159.146.80";
-    private static final Integer port = 6379;
+    private static final String HOST = "115.159.146.80";
+    private static final Integer PORT = 6379;
 
     public static void main(String[] args){
         //连接redis
-        Jedis jedis = new Jedis(host,port);
+        Jedis jedis = new Jedis(HOST,PORT);
         System.out.println("connect success!");
         System.out.println("server is running:" + jedis.ping());
         stringMethod(jedis);
