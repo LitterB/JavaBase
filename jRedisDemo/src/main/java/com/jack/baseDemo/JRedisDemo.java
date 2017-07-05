@@ -26,7 +26,8 @@ public class JRedisDemo {
 
     //redis字符串操作
     private static void stringMethod(Jedis jedis){
-        jedis.set("runoobkey","www.runboob.com");
+        String runoobkey = jedis.set("runoobkey", "www.runboob.com");
+        System.out.println(runoobkey);
         System.out.println("redis 存储的字符串为: " + jedis.get("runoobkey"));
     }
 
@@ -34,13 +35,14 @@ public class JRedisDemo {
         //存储数据到列表中
         jedis.lpush("site-list","Runoob");
         jedis.lpush("site-list","Google");
-        jedis.lpush("site-list","Taobao");
+        Long taobao = jedis.lpush("site-list", "Taobao");
 
         //获取存储的数据并输出
         List<String> list = jedis.lrange("site-list",0,2);
         for (String aList : list) {
             System.out.println("列表项为：" + aList);
         }
+        System.out.println(taobao);
     }
 
     private static void keyMethod(Jedis jedis){
